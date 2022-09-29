@@ -3,9 +3,6 @@
     "fresh/": "https://deno.land/x/fresh@1.1.1/",
 
     "twind": "https://esm.sh/twind@1.0.0-next.38",
-    "twind/": "https://esm.sh/twind@1.0.0-next.38/",
-
-    "preact": "https://esm.sh/preact@10.11.0",
-    "preact/": "https://esm.sh/preact@10.11.0/"
+    "twind/": "https://esm.sh/twind@1.0.0-next.38/"
   }
 }
