@@ -1,4 +1,4 @@
-import { Plugin } from "fresh/server.ts";
+import { Plugin } from "$fresh/server.ts";
 import { setup, tw, TwindUserConfig } from "twind";
 
 export const STYLE_ELEMENT_ID = "__FRSH_TWIND";

@@ -1,8 +1,6 @@
 {
   "imports": {
-    "fresh/": "https://deno.land/x/fresh@1.1.1/",
-
-    "twind": "https://esm.sh/twind@1.0.0-next.38",
-    "twind/": "https://esm.sh/twind@1.0.0-next.38/"
+    "$fresh/": "https://deno.land/x/fresh@1.1.2/",
+    "twind": "https://esm.sh/twind@1.0.0-next.39"
   }
 }
