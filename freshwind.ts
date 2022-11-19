@@ -1,17 +1,26 @@
 import { Plugin } from "$fresh/server.ts";
-import { setup, tw, TwindUserConfig } from "twind";
+import { setup, stringify } from "twind";
+import { FreshwindUserConfig, STYLE_ELEMENT_ID } from "./shared.ts";
 
-export const STYLE_ELEMENT_ID = "__FRSH_TWIND";
-
-export default function twind(config: TwindUserConfig): Plugin {
-  setup(config);
+export default function twind(config: FreshwindUserConfig): Plugin {
+  const instance = setup(config);
+  const main = `data:application/javascript,import hydrate from "${
+    new URL("./freshwind/main.ts", import.meta.url).href
+  }";
+import config from "${config.selfURL}";
+export default function() { hydrate(config); }`;
   return {
     name: "twind",
+    entrypoints: { "main": main },
     render(ctx) {
-      tw.clear();
-      ctx.render();
-      const cssText = [...tw.target].join("\n");
+      const res = ctx.render();
+      const cssText = stringify(instance.target);
+      const scripts = [];
+      if (res.requiresHydration) {
+        scripts.push({ entrypoint: "main", state: [] });
+      }
       return {
+        scripts,
         styles: [{ cssText, id: STYLE_ELEMENT_ID }],
       };
     },
