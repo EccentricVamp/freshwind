@@ -5,7 +5,7 @@ import { FreshwindUserConfig, STYLE_ELEMENT_ID } from "./shared.ts";
 export default function twind(config: FreshwindUserConfig): Plugin {
   const instance = setup(config);
   const main = `data:application/javascript,import hydrate from "${
-    new URL("./freshwind/main.ts", import.meta.url).href
+    new URL("./main.ts", import.meta.url).href
   }";
 import config from "${config.selfURL}";
 export default function() { hydrate(config); }`;
