@@ -1,21 +1,13 @@
 import { options as preactOptions, VNode } from "preact";
-import {
-  getSheet,
-  setup as twSetup,
-  Sheet,
-  tw,
-  TwindUserConfig,
-} from "@twind/core";
+import { dom, setup, TwindConfig } from "@twind/core";
 
 export const STYLE_ELEMENT_ID = "__FRSH_TWIND";
 
-export interface FreshwindConfig {
-  twind: TwindUserConfig;
-  selfURL: string;
-}
-
-export function setup(config: TwindUserConfig, sheet: Sheet = getSheet()) {
-  const instance = twSetup(config, sheet);
+export function install(config: TwindConfig) {
+  const tw = setup(
+    config,
+    () => dom(document.getElementById(STYLE_ELEMENT_ID) as HTMLStyleElement),
+  );
   const originalHook = preactOptions.vnode;
 
   preactOptions.vnode = (
@@ -39,5 +31,5 @@ export function setup(config: TwindUserConfig, sheet: Sheet = getSheet()) {
     originalHook?.(vnode);
   };
 
-  return instance;
+  return tw;
 }
