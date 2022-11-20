@@ -1,5 +1,11 @@
 import { options as preactOptions, VNode } from "preact";
-import { getSheet, setup as twSetup, Sheet, tw, TwindUserConfig } from "twind";
+import {
+  getSheet,
+  setup as twSetup,
+  Sheet,
+  tw,
+  TwindUserConfig,
+} from "@twind/core";
 
 export const STYLE_ELEMENT_ID = "__FRSH_TWIND";
 

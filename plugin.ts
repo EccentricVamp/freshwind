@@ -1,5 +1,5 @@
 import { Plugin } from "$fresh/server.ts";
-import { setup, stringify } from "twind";
+import { setup, stringify } from "@twind/core";
 import { FreshwindUserConfig, STYLE_ELEMENT_ID } from "./shared.ts";
 
 export default function twind(config: FreshwindUserConfig): Plugin {
