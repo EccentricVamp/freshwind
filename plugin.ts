@@ -1,9 +1,9 @@
 import { Plugin } from "$fresh/server.ts";
-import { stringify, TwindConfig } from "@twind/core";
+import { BaseTheme, stringify, TwindConfig } from "@twind/core";
 import { setup, STYLE_ELEMENT_ID } from "./shared.ts";
 
-export default function freshwind(
-  config: TwindConfig,
+export default function freshwind<Theme extends BaseTheme>(
+  config: TwindConfig<Theme>,
   configURL: string,
 ): Plugin {
   const instance = setup(config);

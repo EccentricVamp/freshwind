@@ -1,5 +1,6 @@
 import { options as preactOptions, VNode } from "preact";
 import {
+  BaseTheme,
   getSheet,
   setup as twSetup,
   Sheet,
@@ -9,7 +10,10 @@ import {
 
 export const STYLE_ELEMENT_ID = "__FRSH_TWIND";
 
-export function setup(config: TwindConfig, sheet: Sheet = getSheet()) {
+export function setup<Theme extends BaseTheme>(
+  config: TwindConfig<Theme>,
+  sheet: Sheet = getSheet(),
+) {
   const instance = twSetup(config, sheet);
   const originalHook = preactOptions.vnode;
 
