@@ -9,7 +9,8 @@ import {
 
 export const STYLE_ELEMENT_ID = "__FRSH_TWIND";
 
-export interface FreshwindUserConfig extends TwindUserConfig {
+export interface FreshwindConfig {
+  twind: TwindUserConfig;
   selfURL: string;
 }
 

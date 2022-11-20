@@ -1,9 +1,9 @@
 import { Plugin } from "$fresh/server.ts";
 import { setup, stringify } from "@twind/core";
-import { FreshwindUserConfig, STYLE_ELEMENT_ID } from "./shared.ts";
+import { FreshwindConfig, STYLE_ELEMENT_ID } from "./shared.ts";
 
-export default function twind(config: FreshwindUserConfig): Plugin {
-  const instance = setup(config);
+export default function twind(config: FreshwindConfig): Plugin {
+  const instance = setup(config.twind);
   const main = `data:application/javascript,import hydrate from "${
     new URL("./main.ts", import.meta.url).href
   }";
