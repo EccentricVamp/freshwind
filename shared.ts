@@ -1,13 +1,16 @@
 import { options as preactOptions, VNode } from "preact";
-import { dom, setup, TwindConfig } from "@twind/core";
+import {
+  getSheet,
+  setup as twSetup,
+  Sheet,
+  tw,
+  TwindConfig,
+} from "@twind/core";
 
 export const STYLE_ELEMENT_ID = "__FRSH_TWIND";
 
-export function install(config: TwindConfig) {
-  const tw = setup(
-    config,
-    () => dom(document.getElementById(STYLE_ELEMENT_ID) as HTMLStyleElement),
-  );
+export function setup(config: TwindConfig, sheet: Sheet = getSheet()) {
+  const instance = twSetup(config, sheet);
   const originalHook = preactOptions.vnode;
 
   preactOptions.vnode = (
@@ -31,5 +34,5 @@ export function install(config: TwindConfig) {
     originalHook?.(vnode);
   };
 
-  return tw;
+  return instance;
 }
