@@ -1,6 +1,6 @@
 import { Plugin } from "$fresh/server.ts";
-import { extract, install, TwindConfig } from "@twind/core";
-import { STYLE_ELEMENT_ID } from "./shared.ts";
+import { extract, TwindConfig } from "@twind/core";
+import { install, STYLE_ELEMENT_ID } from "./shared.ts";
 
 export default function freshwind(
   config: TwindConfig,
